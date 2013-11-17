@@ -8,6 +8,8 @@ import (
 
 type Config struct {
 	ExpireTime     int
+	BeingProxied   bool
+	RealIPHeader   string
 	ListenAddress  string
 	MaxPayloadSize int
 }

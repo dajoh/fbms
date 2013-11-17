@@ -32,10 +32,12 @@ func publishHandler(rw http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	host := req.Header.Get("X-Real-IP")
+	host := ""
 	port := req.Header.Get("Fb-Port")
 
-	if host == "" {
+	if config.BeingProxied {
+		host = req.Header.Get(config.RealIPHeader)
+	} else {
 		host, _, _ = net.SplitHostPort(req.RemoteAddr)
 	}
 

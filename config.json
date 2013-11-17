@@ -1,5 +1,7 @@
 {
 	"ExpireTime": 120,
+	"BeingProxied": false,
+	"RealIPHeader": "X-Real-IP",
 	"ListenAddress": ":9200",
 	"MaxPayloadSize": 4096
 }

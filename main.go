@@ -23,6 +23,7 @@ func listHandler(rw http.ResponseWriter, req *http.Request) {
 		return
 	}
 
+	rw.Header().Set("Content-Type", "application/json")
 	rw.Write(serverList.List())
 }
 
@@ -61,7 +62,6 @@ func publishHandler(rw http.ResponseWriter, req *http.Request) {
 	}
 
 	rw.Header().Set("Fb-Expire", fmt.Sprint(config.ExpireTime))
-	rw.Header().Set("Content-Type", "application/json")
 }
 
 func badRequest(rw http.ResponseWriter) {

@@ -61,6 +61,7 @@ func publishHandler(rw http.ResponseWriter, req *http.Request) {
 	}
 
 	rw.Header().Set("Fb-Expire", fmt.Sprint(config.ExpireTime))
+	rw.Header().Set("Content-Type", "application/json")
 }
 
 func badRequest(rw http.ResponseWriter) {

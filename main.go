@@ -1,11 +1,13 @@
 package main
 
 import (
+	"encoding/base64"
 	"fmt"
 	"io/ioutil"
 	"log"
 	"net"
 	"net/http"
+	"unicode/utf8"
 )
 
 var config = LoadConfig("config.json")
@@ -54,6 +56,10 @@ func publishHandler(rw http.ResponseWriter, req *http.Request) {
 	} else if len(payload) > config.MaxPayloadSize {
 		badRequest(rw)
 		return
+	}
+
+	if !utf8.Valid(payload) {
+		payload = []byte(base64.StdEncoding.EncodeToString(payload))
 	}
 
 	err = serverList.Publish(net.JoinHostPort(host, port), payload)

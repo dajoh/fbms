@@ -1,0 +1,5 @@
+{
+	"ExpireTime": 120,
+	"ListenAddress": ":9200",
+	"MaxPayloadSize": 4096
+}

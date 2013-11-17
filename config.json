@@ -3,5 +3,6 @@
 	"BeingProxied": false,
 	"RealIPHeader": "X-Real-IP",
 	"ListenAddress": ":9200",
-	"MaxPayloadSize": 4096
+	"MaxPayloadSize": 4096,
+	"MaxServersPerHost": 10
 }

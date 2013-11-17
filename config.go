@@ -7,11 +7,12 @@ import (
 )
 
 type Config struct {
-	ExpireTime     int
-	BeingProxied   bool
-	RealIPHeader   string
-	ListenAddress  string
-	MaxPayloadSize int
+	ExpireTime        int
+	BeingProxied      bool
+	RealIPHeader      string
+	ListenAddress     string
+	MaxPayloadSize    int
+	MaxServersPerHost int
 }
 
 func LoadConfig(filename string) *Config {

@@ -55,8 +55,12 @@ func publishHandler(rw http.ResponseWriter, req *http.Request) {
 		return
 	}
 
+	err = serverList.Publish(net.JoinHostPort(host, port), payload)
+	if err != nil {
+		internalError(rw, err)
+	}
+
 	rw.Header().Set("Fb-Expire", fmt.Sprint(config.ExpireTime))
-	serverList.Publish(net.JoinHostPort(host, port), payload)
 }
 
 func badRequest(rw http.ResponseWriter) {
